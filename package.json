@@ -1,0 +1,27 @@
+{
+  "name": "ios7",
+  "version": "0.0.0",
+  "description": "iOS7 web emulator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bilelz/ios7.git"
+  },
+  "keywords": [
+    "ios7",
+    "iphone",
+    "ipad",
+    "web",
+    "css3",
+    "angularjs"
+  ],
+  "author": "bilelz",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/bilelz/ios7/issues"
+  },
+  "homepage": "https://github.com/bilelz/ios7"
+}

@@ -1,0 +1,175 @@
+body{
+	background: #444;
+	background-size: cover;
+}
+
+.page{
+	padding: 0;
+	width: 417px;
+	margin: 0 auto;
+	background: url(../img/wallpaper/redblue.png);
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+	vertical-align: top;
+	display: inline-block;
+}
+
+#original{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#original img{
+	display: block;
+}
+
+.page .apps{
+	width: 320px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#settings-panel{
+	position: absolute;
+left: 0;
+top: 100%;
+width: 100%;
+background: red;
+z-index: 1;
+height: 100%;
+//top: 0;
+transition: .3s ease-out;
+}
+
+.app-btn[draggable].over {
+  box-shadow: 0 0 1em red !important;
+  -webkit-animation: fear 1s infinite;
+}
+
+.app-btn[draggable].moving {
+	box-shadow: 0 0 1em white;
+  opacity: 0.25;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+
+@-webkit-keyframes fear {
+  0% {
+    -webkit-transform: translateX(0%);
+  }
+
+  15% {
+    -webkit-transform:  rotate(-5deg);
+  }
+
+  30% {
+    -webkit-transform:   rotate(3deg);
+  }
+
+  45% {
+    -webkit-transform:   rotate(-3deg);
+  }
+
+  60% {
+    -webkit-transform:   rotate(2deg);
+  }
+
+  75% {
+    -webkit-transform:   rotate(-1deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+#controls{
+	text-align: center;
+	margin: 1em 0;
+}
+
+#home, #prev, #next{
+	width: 2em;
+	height: 2em;
+	border: 1px solid white;
+	border-radius: 100%;
+	display: inline-block;
+	margin: 0 auto;
+	box-shadow: inset 0 0 1em white;
+	cursor: pointer;
+	vertical-align: top;
+}
+
+#prev, #next{
+	box-shadow: none;
+	
+	text-align: center;
+	color: white;
+	line-height: 2em;
+	font-weight: bold;
+}
+
+
+.app-btn{
+	background-color: transparent;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+	width:	5em;
+	height: 5em;
+	color: white;
+	padding: 0;
+	text-decoration: none;
+	border-radius: 25%;
+	display: inline-block;
+	text-align: center;
+	margin: 0 .65em 1.8em .65em;
+	transition: .3s;
+	z-index: 1;
+	position: relative;
+}
+
+.app-btn span {
+text-shadow: 0 1px 1px black;
+display: block;
+position: absolute;
+bottom: -1.4em;
+left: 0;
+width: 100%;
+text-align: center;
+}
+
+
+.footer{
+	position : relative;
+	padding-top: 1em;
+	line-height: 0.9em;
+}
+
+.footer .app-btn span{
+	text-shadow: none;
+}
+
+.footer:after{
+	content: '';
+	position : absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: white;
+	opacity:.5;
+}
+
+.footer:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+-webkit-filter: blur(10px);
+}
+
+

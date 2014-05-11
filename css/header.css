@@ -1,0 +1,57 @@
+
+#header{
+	height: 1.5em;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 0 .5em;
+	color: white;
+	position: relative;
+	margin-bottom: .5em;
+}
+
+#header .fa{
+	vertical-align: bottom;
+}
+
+#network span{
+	width: .5em;
+	height: .5em;
+	background: white;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+#time{
+	left: 44%;
+	position: absolute;
+	font-weight: bold;
+}
+
+#battery{
+	float: right;
+	
+}
+
+#battery-charge{
+	width: 2em;
+	height: .5em;
+	background: -webkit-linear-gradient(left, white, white) repeat-y;
+	background-size: 100%;
+	display: inline-block;
+	border: 1px solid white;
+	box-shadow: 0 0 2px black inset;
+	content: '';
+	z-index: 1;
+	position: relative;
+	border-radius: 10%;
+}
+
+#battery-charge:after{
+	width: .15em;
+	height: .25em;
+	background: white;
+	display: inline-block;
+	position: absolute;
+	right: -.2em;
+	top: 0.125em;
+	content: '';
+}

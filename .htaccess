@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^(.*)\.[\d]+\.(css|js)$ $1.$2 [L] # Strip out the version number
+
+
