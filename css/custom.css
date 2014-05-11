@@ -3,6 +3,10 @@ body{
 	background-size: cover;
 }
 
+#ioshtml5{
+	display: inline-block;
+}
+
 .page{
 	padding: 0;
 	width: 417px;
@@ -12,7 +16,7 @@ body{
 	position: relative;
 	overflow: hidden;
 	vertical-align: top;
-	display: inline-block;
+	display: block;
 }
 
 #original{
