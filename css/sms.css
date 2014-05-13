@@ -1,0 +1,20 @@
+#viewport{
+	background: white;
+}
+
+
+.sms{
+	border : 1px solid #ccc;
+	border-radius: 2em;
+	background: #ccc;
+	padding: .5em 1em;
+	margin-bottom: 1em;
+}
+
+
+.sms.you{
+	float : right;
+	background: #1C92FF;
+	color : white;
+}
+

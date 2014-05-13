@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+    	<base href="/ios7/">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="mobile-web-app-capable" content="yes">
@@ -33,6 +34,8 @@
 
         <!-- Add your site or application content here -->
         
+        	
+        
         <div id="ioshtml5">
 	        <div class="page">
 	        	
@@ -55,69 +58,8 @@
 	        		</span>
 	        	</div>
 		        
-		        <div id="viewport">
-					<div id="wrapper">
-						<div id="scroller">
-							<div class="slide">
-								<div class="apps">
-					        		<a href="sms:" class="app-btn ios-icon messages" draggable="true"><span>Messages</span></a>
-						        	<a href="cal:" class="app-btn ios-icon calendar" draggable="true"><span>Calendar</span></a>
-						        	<a href="#" class="app-btn ios-icon photos" draggable="true"><span>Photos</span></a>
-						        	<a href="#" class="app-btn ios-icon camera" draggable="true"><span>Camera</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon weather" draggable="true"><span>Weather</span></a>
-						        	<a href="#" class="app-btn ios-icon clock" draggable="true"><span>Clock</span></a>
-						        	<a href="https://maps.google.com" class="app-btn ios-icon maps"  draggable="true" target="_blank"><span>Maps</span></a>
-						        	<a href="#" class="app-btn ios-icon videos" draggable="true"><span>Videos</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon notes"><span>Notes</span></a>
-						        	<a href="#" class="app-btn ios-icon reminder"><span>Reminders</span></a>
-						        	<a href="#" class="app-btn ios-icon stocks"><span>Stocks</span></a>
-						        	<a href="#" class="app-btn ios-icon game"><span>Game</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon newsstand"><span>Newsstand</span></a>
-						        	<a href="#" class="app-btn ios-icon itunes"><span>Itunes</span></a>
-						        	<a href="itunes:" class="app-btn ios-icon store"><span>App Store</span></a>
-						        	<a href="#" class="app-btn ios-icon passbook"><span>Passbook</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon compass"><span>Compass</span></a>
-						        	<a href="#" class="app-btn ios-icon settings"><span>Settings</span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>		
-						        </div>
-						         
-							</div>
-							<div class="slide">
-								<div class="apps">
-					        		<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>
-						        	<a href="#" class="app-btn"><span></span></a>		
-						        </div>
-							</div>
-							
-						</div>
-					</div>
+		        <div id="viewport" ng-view class="{{ pageClass }} ">
+					
 				</div>
 				
 				<div id="indicator">
@@ -158,13 +100,13 @@
         
         
 		
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.4111.js"></script>
-        <script type="text/javascript" src="bower_components/iscroll/build/iscroll.js"></script>
+        <script type="text/javascript" src="bower_components/iscroll/build/iscroll.js"></script> -->
 
-		<!-- <script src="bower_components/requirejs/require.js" data-main="js/index"></script> -->
+		<script src="bower_components/requirejs/require.js" data-main="js/index"></script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

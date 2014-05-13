@@ -9,7 +9,7 @@ body{
 
 .page{
 	padding: 0;
-	width: 417px;
+	width: 26em; // 417px/16px
 	margin: 0 auto;
 	background: url(../img/wallpaper/redblue.png);
 	background-size: cover;
@@ -29,7 +29,6 @@ body{
 }
 
 .page .apps{
-	width: 320px;
 	width: 100%;
 	margin: 0 auto;
 }
@@ -128,7 +127,7 @@ transition: .3s ease-out;
 	border-radius: 25%;
 	display: inline-block;
 	text-align: center;
-	margin: 0 .65em 1.8em .65em;
+	margin: 0 .625em 1.8em .625em;
 	transition: .3s;
 	z-index: 1;
 	position: relative;
