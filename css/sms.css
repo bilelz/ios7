@@ -6,9 +6,13 @@
 .sms{
 	border : 1px solid #ccc;
 	border-radius: 2em;
-	background: #ccc;
+	background: #E5E4EA;
 	padding: .5em 1em;
-	margin-bottom: 1em;
+	margin-top: 1em;
+	float: left;
+	clear: left;
+	position: relative;
+	left: 1em;
 }
 
 
@@ -16,5 +20,45 @@
 	float : right;
 	background: #1C92FF;
 	color : white;
+	left : -1em;
 }
 
+.sms:before {
+content: "";
+position: absolute;
+bottom: -1.1em;
+left: 0;
+height: 1em;
+border-right: 2em solid #E5E4EA;
+background: inherit;
+-webkit-border-bottom-right-radius: 80px 50px;
+-moz-border-radius-bottomright: 80px 50px;
+border-bottom-right-radius: 80px 50px;
+-webkit-transform: translate(0, -2px);
+-moz-transform: translate(0, -2px);
+-ms-transform: translate(0, -2px);
+-o-transform: translate(0, -2px);
+transform: translate(0, -2px);
+}
+
+.sms.you:before {
+border-right-color:  #1C92FF;
+}
+
+.sms:after {
+content: "";
+position: absolute;
+bottom: -1.1em;
+left: 1em;
+width: 2em;
+height: 1em;
+background: white;
+-webkit-border-bottom-right-radius: 40px 50px;
+-moz-border-radius-bottomright: 40px 50px;
+border-bottom-right-radius: 40px 50px;
+-webkit-transform: translate(-30px, -2px);
+-moz-transform: translate(-30px, -2px);
+-ms-transform: translate(-30px, -2px);
+-o-transform: translate(-30px, -2px);
+transform: translate(-30px, -2px);
+}
