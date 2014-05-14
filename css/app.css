@@ -1,0 +1,24 @@
+#app-header{
+	background: #F3F3F3;
+color: #1D79FA;
+height: 2em;
+position: relative;
+line-height: 2em;
+}
+
+#app-header a{ 
+padding: .5em;
+	color : #1D79FA;
+	text-decoration: none;
+	z-index: 2;
+position: relative;
+}
+
+#app-title{
+	color: black;
+left: 0;
+position: absolute;
+width: 100%;
+text-align: center;
+z-index: 1;
+}

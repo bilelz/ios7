@@ -3,6 +3,37 @@
 }
 
 
+#app-footer{
+	background: #F3F3F3;
+	position: absolute;
+bottom: 0;
+left: 0;
+padding: .5em;
+width: 100%;
+color: #777;
+}
+
+#app-footer input[type=text]{
+	width: 19.5em;
+	background: transparent;
+	border: 1px solid #ccc;
+	padding: 0.25em .5em;
+	border-radius: 0.25em;
+	transition: .3s;
+}
+
+#app-footer input[type=text]:focus{
+	background: white;
+}
+
+#app-footer input[type=submit]{
+	background: transparent;
+border: none;
+padding: 0.25em .5em;
+color: #777;
+}
+
+
 .sms{
 	border : 1px solid #ccc;
 	border-radius: 2em;

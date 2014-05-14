@@ -9,7 +9,8 @@ body{
 
 .page{
 	padding: 0;
-	width: 26em; // 417px/16px
+	width: 26em;  
+	height: 46.35em;
 	margin: 0 auto;
 	background: url(../img/wallpaper/redblue.png);
 	background-size: cover;
