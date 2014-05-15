@@ -27,7 +27,7 @@ define(['angular','app'], function(angular, app)
 				}
 			});
 			
-			$("#home").click(function(){ myScroll.goToPage(0, 0, 1000); });
+			$("#home").click(function(){ myScroll.goToPage(0, 0, 1000); console.log("home"); });
 			$("#prev").click(function(){ myScroll.prev(1000); });
 			$("#next").click(function(){ myScroll.next(1000); });
 			$scope.pageClass = 'page-home';

@@ -18,7 +18,7 @@ var point, pointStartX, pointStartY, deltaX, deltaY;
 		}
 	});
 	
-	$("#home").click(function(){ myScroll.goToPage(0, 0, 1000);});
+	//$("#home").click(function(){ myScroll.goToPage(0, 0, 1000);});
 	$("#prev").click(function(){ myScroll.prev(1000); });
 	$("#next").click(function(){ myScroll.next(1000); });
 	
