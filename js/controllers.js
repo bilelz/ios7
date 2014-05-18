@@ -30,138 +30,97 @@ define(['angular','app'], function(angular, app)
 			$("#home").click(function(){ myScroll.goToPage(0, 0, 1000); console.log("home"); });
 			$("#prev").click(function(){ myScroll.prev(1000); });
 			$("#next").click(function(){ myScroll.next(1000); });
-			$scope.pageClass = 'page-home';
+			$scope.pageClass = 'page-home';	
+			
+			//ios clock
+			for(var i=0;i<12;i++){
+				$(".ios-clock").append("<span class='ios-clock-hours' style='-webkit-transform: rotate("+(i-2)*30+"deg) translateX(2em);'><span  style='-webkit-transform: rotate("+(-1)*(i-2)*30+"deg)'>"+(i+1)+"</span></span>");
+			}
+			
+			setInterval(function(){
+				var now = new Date();
+				var hour = (now.getHours()<=12)?now.getHours():now.getHours()-12;
+				var min = now.getMinutes();
+				var sec = now.getSeconds();
+				$(".ios-clock-bar-hour").css({	"-webkit-transform":"rotate("+(hour*30-90)+"deg)",
+												"-moz-transform":"rotate("+(hour*30-90)+"deg)",
+												"transform":"rotate("+(hour*30-90)+"deg)" });
+				$(".ios-clock-bar-min").css({	"-webkit-transform":"rotate("+(min*6-90)+"deg)",
+												"-moz-transform":"rotate("+(min*6-90)+"deg)",
+												"transform":"rotate("+(min*6-90)+"deg)" });
+				if(sec==0){
+					$(".ios-clock-bar-sec").css({	"transition":"0s"});
+				}
+				$(".ios-clock-bar-sec").css({	"-webkit-transform":"rotate("+(sec*6-90)+"deg)",
+												"-moz-transform":"rotate("+(sec*6-90)+"deg)",
+												"transform":"rotate("+(sec*6-90)+"deg)" });
+				if(sec==0){
+					$(".ios-clock-bar-sec").css({	"transition":"1s"});
+				}
+			},1000);
         }]
     );
     
-    app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
+    app.controller('MapController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
     	function($scope,$location, $routeParams, $http, caldevServices, Page) {
-		$scope.pageClass = 'page-detail';
-			 
 		
-			caldevServices.get(agendaID, $routeParams.eventId).then(function(data) {
-													$scope.entry = data.entry;
-													Page.setTitle(data.entry.title.$t + " - CalDev.io");
-													setTimeout(lazyLoadImage, 10);
-													hideLoader();
-												});			
-		}]
-	);
-
-	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
-		function ($scope, $http, $location, $routeParams, caldevServices, Page){
-
-		$scope.pageClass = 'page-add';
-
-		 
-		Page.setTitle("Submit an event - CalDev.io");
-	
-			
-		//$scope.newEvent = {};
-		$scope.mailSend = false;
-		$scope.mailSendError = false;
-		
-		$scope.event = {title:"",
-							date: moment().format("YYYY-MM-DD"),
-							hour:"18:00",
-							hourend:"20:30",
-							dateend: moment().add('days', 1).format("YYYY-MM-DD"),
-							adress: "",
-							description: "",
-							mail:""};
-		
-		// datepicker fallback
-		var elem = document.createElement('input');
-	    elem.setAttribute('type', 'date');
-	 
-      	if ( elem.type === 'text' ) {
-      		require(['jqueryui'], function(){
-      			$("head").append('<link href="/js/libs/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />');
-				$('.date').datepicker( { dateFormat:  "dd/mm/yy", changeMonth: true }); 
-				$("#date").val(moment().format("DD/MM/YYYY"));
-				$("#dateend").val(moment().add('days', 1).format("DD/MM/YYYY"));
-			}); 	
-      	}
-      	// end : datepicker fallback
-      	
-		
-		$scope.eventForm = $scope.event ;	
-		
-		$scope.hours = [];
-        for(var i=0;i<=23;i++){
-        	$scope.hours.push({label: ((i<10)?("0"+i):i)+":00",value:  ((i<10)?("0"+i):i)+":00"}, {label:  ((i<10)?("0"+i):i)+":30",value:  ((i<10)?("0"+i):i)+":30"});
-        }
-        
-       
-		
-		$scope.dateChange = function(e) {
-	      console.log($scope.event.hour);
-	    };				
-	    
-		$scope.addEvent = function(e, $http) {
-			console.log(e);
-			
-			if ($scope.myFormNg.$valid) {
-		      var date = moment(e.date+e.hour, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
-		      var dateend = moment(e.dateend+e.hourend, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
-		      
-		      var urladd = "js/misc/add.php?title="+escape(e.title)+"&date="+date+"&dateend="+dateend+"&adress="+escape(e.adress)
-		      					+"&description="+escape(e.description)+"&mail="+e.mail+"&mailcc="+e.mailcc;
-		      
-		      caldevServices.add(urladd)
-		      				.then(function(data) {
-						      if(data.status == "OK"){
-						      	$scope.mailSend = true;
-						      	$scope.mailSendError = false;
-						      	$scope.mailResponseTxt = data.response;
-						      	window.scrollTo(0,0);
-						      }else{
-						      	$scope.mailSendError = true;
-						      	$scope.mailSend = false;
-						      	$scope.mailResponseTxt = data.response;
-						      }
-							});	
-		      
-		      
-		    } else {
-		      console.log("NO valid");	
-		      console.log(JSON.stringify(e.$error));  
-		     }
-		     
-		};
-		
-		
-		
-		
-		
-		require(['async!http://maps.google.com/maps/api/js?v=3.exp&sensor=false&&libraries=places'], function(){
+		var x = document.getElementById("demo");
+		  require(['async!http://maps.google.com/maps/api/js?v=3.exp&key=&AIzaSyD4uf0OUj3T-TAHUxqW5luo6d6Z-Br1_sosensor=false&&libraries=places'], function(){
 				var mapOptions = {
 			    center: new google.maps.LatLng(48.8588589,2.3470599),
-			    zoom: 1
+			    zoom: 5,
+			    disableDefaultUI: true
 			  };
-			  //var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			  
+			  showInfo("geolocation user request...");
+	  		  if (navigator.geolocation){
+				    navigator.geolocation.getCurrentPosition(function(position){
+				    	showInfo("Thanks", true);
+				    	map.panTo(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+				    	console.log("Latitude: " + position.coords.latitude + " / Longitude: " + position.coords.longitude);
+				    }, showError);
+			   }else{
+				  	showInfo("Change your device, it don't support geelocation!");
+			  }
+
+			function showError(error)
+			  {
+			  switch(error.code) 
+			    {
+			    case error.PERMISSION_DENIED:
+			      showInfo("You denied the request for Geolocation!!!! <br/>How can I work now! GRRRRRR", true);
+			      break;
+			    case error.POSITION_UNAVAILABLE:
+			      showInfo("Location information is unavailable! BOUH!")
+			      break;
+			    case error.TIMEOUT:
+			      showInfo("The request to get user location timed out. <br/>Please, wake up.")
+			      break;
+			    case error.UNKNOWN_ERROR:
+			      showInfo("An unknown error occurred. <br/>Not my fault.");
+			      break;
+			    }
+			  }
 			  
 			   var input =  document.getElementById('adress');
 			   var types = document.getElementById('type-selector');
 			
 			  var autocomplete = new google.maps.places.Autocomplete(input);
-			  //autocomplete.bindTo('bounds', map);
+			  autocomplete.bindTo('bounds', map);
 			
-			  /*var infowindow = new google.maps.InfoWindow();
+			  var infowindow = new google.maps.InfoWindow();
 			  var marker = new google.maps.Marker({
 			    map: map
-			  });*/
-			  
-			  input.placeholder = "";
-			   
+			  });
+			  			   
 			   google.maps.event.addListener(autocomplete, 'place_changed', function() {
 			    var place = autocomplete.getPlace();
 			    if (!place.geometry) {
 			      return;
 			    }
-			    /*
+			    
 			    infowindow.close();
-			    document.getElementById('map-canvas').style.height = "150px";
 			    marker.setVisible(false);
 			    
 			
@@ -169,8 +128,7 @@ define(['angular','app'], function(angular, app)
 			    if (place.geometry.viewport) {
 			      map.fitBounds(place.geometry.viewport);
 			    } else {
-			      map.setCenter(place.geometry.location);
-			      map.setZoom(10);  
+			      map.panTo(place.geometry.location);
 			    }
 			    marker.setIcon(({
 			      url: place.icon,
@@ -193,26 +151,20 @@ define(['angular','app'], function(angular, app)
 			
 			    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
 			    //infowindow.open(map, marker);
-			    */
-				
-			    $scope.myFormNg.adress = document.getElementById('adress').value;
-			    $scope.event.adress = document.getElementById('adress').value;
-		
 			  });
 			});	
 	
+		  
+		}]
+	);
+
+	app.controller('Controller', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
+		function ($scope, $http, $location, $routeParams, caldevServices, Page){
+			hideInfo();
 	
 		}]
 	);
 
-	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page',
-		function ($scope,$location, $routeParams, $http, $sce, Page){
-			 
-			$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
-							+"&src="+agendaID+"%40group.calendar.google.com&color=%232F6309&ctz=Europe%2FParis");
-		
-		}]
-	);
 		
     
 });

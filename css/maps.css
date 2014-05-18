@@ -1,0 +1,29 @@
+#map-canvas {
+        height: 100%;
+        width: 100%;
+		margin: 0px;
+		padding: 0px;
+		transition:.3s;
+      }
+#map-canvas label, .gmnoprint { width: auto !important; display:inline; }
+#map-canvas img { max-width: none;max-height: none;  }
+
+[type=search]{
+	position: absolute;
+top: .5em;
+left: 0;
+width: 90%;
+border: 1px solid #ccc;
+z-index: 3;
+font-size: 1.2em;
+margin: 0 2.5%;
+background: rgba(255, 255, 255, 0.9);
+padding: .25em .5em;
+transition: .3s;
+}
+
+
+[type=search]:focus{
+	
+background: rgba(255, 255, 255, 1);
+}

@@ -4,9 +4,9 @@ require(['angular', 'app', 'controllers'], function(angular, app) {
 	    $routeProvider.
 	      when('/', {controller:'HomeController', templateUrl:'html/home.html'}).
 	      when('/:eventLabel/:eventId', {controller:'DetailController', templateUrl:'html/detail.html'}).
-	      when('/sms', {controller:'SmsController', templateUrl:'html/smslist.html'}).
-	      when('/smsread', {controller:'SmsReadController', templateUrl:'html/sms.html'}).
-	      when('/c', {controller:'CalendarController', templateUrl:'html/calendar.html'}).
+	      when('/sms', {controller:'Controller', templateUrl:'html/smslist.html'}).
+	      when('/smsread', {controller:'Controller', templateUrl:'html/sms.html'}).
+	      when('/maps', {controller:'MapController', templateUrl:'html/maps.html'}).
 	      otherwise({redirectTo:'/'});
 	}]);
 });

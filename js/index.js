@@ -11,8 +11,8 @@ require.config({
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
         jquery: '../bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min',
-        //async: 'libs/requirejs-plugins/src/async',
-        //goog: 'libs/requirejs-plugins/src/goog',
+        async: '../bower_components/requirejs-plugins/src/async',
+        goog: '../bower_components/requirejs-plugins/src/goog',
         angular : '../bower_components/angular/angular.min',
         angularroute : '../bower_components/angular-route/angular-route',
         angularresource: "../bower_components/angular-resource/angular-resource",
@@ -111,3 +111,16 @@ function showLoader(){
 function hideLoader(){
 	document.getElementById("loader").style.display ="none";
 }
+
+
+function showInfo(text, hideDelay){
+	$("#info").html(text).show();
+	if(hideDelay != undefined && hideDelay){
+		setTimeout(hideInfo, 1000);
+	}
+}
+
+function hideInfo(){
+	$("#info").hide();
+}
+

@@ -1,0 +1,66 @@
+.clock{
+	font-size: 0.95em;
+	background: black;
+	background-image : none;
+	padding: 0.2em;
+}
+
+.ios-clock {
+	position: relative;
+	width: 5em;
+	height: 5em;
+	background: white;
+	border-radius: 3em;
+}
+
+.ios-clock-hours {
+	position: absolute;
+	text-shadow: none;
+	color: black;
+	top: 0;
+	left: 2.25em;
+	line-height: 5em;
+	bottom: auto;
+	right: auto;
+	-webkit-transform-origin: center;
+	transform-origin: center;
+}
+
+.ios-clock-hours span {
+	display: block;
+	font-size: .6em;
+}
+
+.ios-clock-bar-hour, .ios-clock-bar-min, .ios-clock-bar-sec {
+	width: 1.6em;
+	height: .1em;
+	display: block;
+	background: black;
+	position: absolute;
+	top: 2.5em;
+	left: 50%;
+	-webkit-transform: rotate(0);
+	-webkit-transform-origin: 0 0;
+	transition: 1s linear;
+}
+
+.ios-clock-bar-hour {
+	width: 1em;
+}
+
+.ios-clock-bar-sec {
+	width: 1.4em;
+	background: red;
+}
+
+.ios-clock-center {
+	position: absolute;
+	top: 2.3em;
+	left: 2.3em;
+	width: .4em;
+	height: .4em;
+	border-radius: 1em;
+	background: black;
+	z-index: 6;
+}
+
