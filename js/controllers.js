@@ -1,7 +1,84 @@
 define(['angular','app'], function(angular, app)
 {
-	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
-	agendaID = "u825pd9kqiahvdqljsk29rass4";
+	
+	 app.controller(
+        'LockController', ['$scope', '$location', '$http', 'caldevServices' , 'Page',
+        function($scope, $location, $http, caldevServices, Page) {
+            
+
+			Page.setTitle("iOS7 - Lockscreen");
+			
+			var myScroll;
+			var point, pointStartX, pointStartY, deltaX, deltaY;
+			myScroll = new IScroll('#wrapper', {
+				scrollX: true,
+				scrollY: false,
+				click : true,
+				eventPassthrough: true,
+				preventDefault: false,
+				momentum: false,
+				snap: true,
+				snapSpeed: 400,
+				keyBindings: true,
+				indicators: {
+					el: document.getElementById('indicator'),
+					resize: false
+				}
+			});
+			
+			myScroll.on('scrollEnd', function () {
+			    console.log(this.currentPage.pageX);
+			    if(this.currentPage.pageX == 0){
+			    	$("#lock-bg").addClass("blur");
+			    }else{
+			    	$("#lock-bg").removeClass("blur");
+			    }
+			    
+			    
+			});
+			
+			$("#home").click(function(){ myScroll.goToPage(1, 0, 1000); console.log("home"); });
+			$("#prev").click(function(){ myScroll.prev(1000); });
+			$("#next").click(function(){ myScroll.next(1000); });
+			$scope.pageClass = 'page-lock';	
+			
+			$("#lock-clock").text(moment(new Date()).format("hh:mm"));
+			$("#lock-date").text(moment(new Date()).format("dddd, MMMM DD"));
+			myScroll.next(0);
+			
+			var code = "";
+			
+			$scope.code = '';
+			$scope.num = function(index) {
+
+			    
+			    if($scope.code.length < 4){
+					$scope.code += index;
+					console.log($scope.code);
+					$("#lock-indicator span").removeClass("active");
+					$("#lock-indicator span:nth-child(-n+"+$scope.code.length+")").addClass("active");
+					if($scope.code.length == 4){
+						$location.path("/home");
+					}
+				}
+			 };
+			
+			
+			$scope.deletenum = function(index) {
+
+				if($scope.code.length>0){
+					$scope.code = $scope.code.slice(null,$scope.code.length-1);
+					console.log($scope.code);
+				}
+				
+				$("#lock-indicator span").removeClass("active");
+				$("#lock-indicator span:nth-child(-n+"+$scope.code.length+")").addClass("active");
+
+			 };
+			
+        }]
+    );
+    
     app.controller(
         'HomeController', ['$scope', '$location', '$http', 'caldevServices' , 'Page',
         function($scope, $location, $http, caldevServices, Page) {

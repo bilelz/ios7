@@ -25,6 +25,7 @@
 	width: 800px;
 	width: 200%;
 	//height: 240px;
+	height: 100%;
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
 	-ms-transform: translateZ(0);
@@ -47,6 +48,8 @@
 	width: 200px;
 	width: 50%;
 	//height: 240px;
+	height: 100%;
+	position: relative;
 	float: left;
 }
 

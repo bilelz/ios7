@@ -45,9 +45,9 @@ require( [
 	'app',
 	'filters',
 	'services',
-	'controllers',
+	'controllers.2',
 	'iscroll',
-	'routes',
+	'routes.2',
 	'jquery'
 ], function(angular, app, routes, controllers) {
 	'use strict';
