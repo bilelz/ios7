@@ -18,6 +18,7 @@ require.config({
         angularresource: "../bower_components/angular-resource/angular-resource",
         moment : '../bower_components/moment/moment',
         iscroll : '../bower_components/iscroll/build/iscroll',
+        iscrollprobe : '../bower_components/iscroll/build/iscroll-probe',
         angularanimate : '../bower_components/angular-animate/angular-animate'//,
         //project : 'project'
     },
@@ -45,9 +46,8 @@ require( [
 	'app',
 	'filters',
 	'services',
-	'controllers.2',
-	'iscroll',
-	'routes.2',
+	'controllers.22',
+	'routes.22',
 	'jquery'
 ], function(angular, app, routes, controllers) {
 	'use strict';

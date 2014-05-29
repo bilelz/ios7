@@ -8,43 +8,66 @@ define(['angular','app'], function(angular, app)
 
 			Page.setTitle("iOS7 - Lockscreen");
 			
-			var myScroll;
-			var point, pointStartX, pointStartY, deltaX, deltaY;
-			myScroll = new IScroll('#wrapper', {
-				scrollX: true,
-				scrollY: false,
-				click : true,
-				eventPassthrough: true,
-				preventDefault: false,
-				momentum: false,
-				snap: true,
-				snapSpeed: 400,
-				keyBindings: true,
-				indicators: {
-					el: document.getElementById('indicator'),
-					resize: false
-				}
+			require(["iscrollprobe"], function(){
+			
+				var myScroll;
+				var point, pointStartX, pointStartY, deltaX, deltaY;
+				myScroll = new IScroll('#wrapper', {
+					scrollX: true,
+					scrollY: false,
+					click : true,
+					eventPassthrough: true,
+					preventDefault: false,
+					momentum: false,
+					snap: true,
+					snapSpeed: 400,
+					keyBindings: true,
+					probeType: 2,
+					indicators: {
+						el: document.getElementById('indicator'),
+						resize: false
+					}
+				});
+				
+				/*myScroll.on('scrollEnd', function () {
+				    console.log(this.currentPage.pageX);
+				    if(this.currentPage.pageX == 0){
+				    	$("#lock-bg").addClass("blur");
+				    }else{
+				    	$("#lock-bg").removeClass("blur");
+				    }
+				    
+				    
+				});*/
+				
+
+				myScroll.on('scroll', function() {
+					//console.log("scroll:"+this.x);
+					var blur = 1 * ((1+(this.x/320)));
+					$("#bg").css({"-webkit-filter": "blur("+blur+"em)",
+											   "filter": "blur("+blur+"em)"});
+					
+				}); 
+	
+				myScroll.on('scrollEnd', function() {
+					//console.log("scrollEnd:"+this.x);
+					var blur = 1 * ((1+(this.x/320)));
+					$("#bg").css({"-webkit-filter": "blur("+blur+"em)",
+											   "filter": "blur("+blur+"em)"});
+				}); 
+				myScroll.next(0);
+				
+				$("#home").click(function(){ myScroll.goToPage(1, 0, 1000);  });
+				$("#prev").click(function(){ myScroll.prev(1000); });
+				$("#next").click(function(){ myScroll.next(1000); });	
 			});
 			
-			myScroll.on('scrollEnd', function () {
-			    console.log(this.currentPage.pageX);
-			    if(this.currentPage.pageX == 0){
-			    	$("#lock-bg").addClass("blur");
-			    }else{
-			    	$("#lock-bg").removeClass("blur");
-			    }
-			    
-			    
-			});
 			
-			$("#home").click(function(){ myScroll.goToPage(1, 0, 1000); console.log("home"); });
-			$("#prev").click(function(){ myScroll.prev(1000); });
-			$("#next").click(function(){ myScroll.next(1000); });
 			$scope.pageClass = 'page-lock';	
 			
 			$("#lock-clock").text(moment(new Date()).format("hh:mm"));
 			$("#lock-date").text(moment(new Date()).format("dddd, MMMM DD"));
-			myScroll.next(0);
+			
 			
 			var code = "";
 			
@@ -85,28 +108,32 @@ define(['angular','app'], function(angular, app)
             
 
 			Page.setTitle("iOS7 - HTML5");
+			$("#bg").css({"-webkit-filter": "blur(0)",
+											   "filter": "blur(0)"});
 			
-			var myScroll;
-			var point, pointStartX, pointStartY, deltaX, deltaY;
-			myScroll = new IScroll('#wrapper', {
-				scrollX: true,
-				scrollY: false,
-				click : true,
-				eventPassthrough: true,
-				preventDefault: false,
-				momentum: false,
-				snap: true,
-				snapSpeed: 400,
-				keyBindings: true,
-				indicators: {
-					el: document.getElementById('indicator'),
-					resize: false
-				}
+			require(["iscrollprobe"], function(){
+				var myScroll;
+				var point, pointStartX, pointStartY, deltaX, deltaY;
+				myScroll = new IScroll('#wrapper', {
+					scrollX: true,
+					scrollY: false,
+					click : true,
+					eventPassthrough: true,
+					preventDefault: false,
+					momentum: false,
+					snap: true,
+					snapSpeed: 400,
+					keyBindings: true,
+					indicators: {
+						el: document.getElementById('indicator'),
+						resize: false
+					}
+				});
+				
+				$("#home").click(function(){ myScroll.goToPage(0, 0, 1000); console.log("home"); });
+				$("#prev").click(function(){ myScroll.prev(1000); });
+				$("#next").click(function(){ myScroll.next(1000); });
 			});
-			
-			$("#home").click(function(){ myScroll.goToPage(0, 0, 1000); console.log("home"); });
-			$("#prev").click(function(){ myScroll.prev(1000); });
-			$("#next").click(function(){ myScroll.next(1000); });
 			$scope.pageClass = 'page-home';	
 			
 			//ios clock
@@ -145,7 +172,7 @@ define(['angular','app'], function(angular, app)
 		  require(['async!http://maps.google.com/maps/api/js?v=3.exp&key=&AIzaSyD4uf0OUj3T-TAHUxqW5luo6d6Z-Br1_sosensor=false&&libraries=places'], function(){
 				var mapOptions = {
 			    center: new google.maps.LatLng(48.8588589,2.3470599),
-			    zoom: 5,
+			    zoom: 10,
 			    disableDefaultUI: true
 			  };
 			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -155,6 +182,15 @@ define(['angular','app'], function(angular, app)
 				    navigator.geolocation.getCurrentPosition(function(position){
 				    	showInfo("Thanks", true);
 				    	map.panTo(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+				    	
+				    	var marker = new google.maps.Marker({
+						    map: map
+						  });
+					  
+					  
+					    marker.setPosition(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+					    infowindow.open(map, marker);
+				    	
 				    	console.log("Latitude: " + position.coords.latitude + " / Longitude: " + position.coords.longitude);
 				    }, showError);
 			   }else{
@@ -227,7 +263,7 @@ define(['angular','app'], function(angular, app)
 			    }
 			
 			    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-			    //infowindow.open(map, marker);
+			    infowindow.open(map, marker);
 			  });
 			});	
 	
