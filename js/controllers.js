@@ -72,9 +72,8 @@ define(['angular','app'], function(angular, app)
 			var code = "";
 			
 			$scope.code = '';
-			$scope.num = function(index) {
-
-			    
+			$scope.num = function(index, event) {
+				console.log(event);
 			    if($scope.code.length < 4){
 					$scope.code += index;
 					console.log($scope.code);

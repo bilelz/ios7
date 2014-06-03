@@ -55,20 +55,19 @@ require( [
 	angular.element().ready(function(app) {
 		angular.bootstrap(document, ['ios']);
       	
-      	//window.addEventListener("deviceorientation", handleOrientation, true);
-      	/*document.body.onmousemove=function(event){
+      	window.addEventListener("deviceorientation", handleOrientation, true);
+      	document.body.onmousemove=function(event){
       		console.log(event);
 			var centerX = document.body.offsetWidth/2;
 			var centerY = document.body.offsetHeight/2;
-			var bgX =  (centerX - event.x)/3;
-			var bgY =  (centerY - event.y)/3;
+			var bgX =  (centerX - event.x)/5;
+			var bgY =  (centerY - event.y)/5;
 			
-			var bgX =  (centerX - event.x)/3;
-			var bgY =  0;
+			
 			
 			console.log(bgX+"px "+bgY+"px");
-			document.querySelector("#bigPicture").style.backgroundPosition = bgX+"px "+bgY+"px";
-      	};*/
+			document.querySelector("#bg").style.backgroundPosition = bgX+"px "+bgY+"px";
+      	};
 	});
 });
 
@@ -124,3 +123,14 @@ function hideInfo(){
 	$("#info").hide();
 }
 
+
+function handleOrientation(event) {
+  var absolute = event.absolute;
+  var alpha    = event.alpha * (-1);
+  var beta     = event.beta * (-1/3);
+  var gamma    = event.gamma * (-1/3);
+	
+
+  // Do stuff with the new orientation data
+  document.querySelector("#bg").style.backgroundPosition = gamma+"px "+ beta+"px";
+}

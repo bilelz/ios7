@@ -26,7 +26,7 @@ background-size: 33em;
 }
 
 #bg{
-	background: url(../img/wallpaper/116@2xiphone.png) no-repeat center top;
+	background: url(../img/wallpaper/116@2xiphone.png) repeat center top;
 	height: 100%;
 	position: absolute;
 	width: 100%;
@@ -34,7 +34,7 @@ background-size: 33em;
 	left: 0;
 	z-index: 0;
 	background-size: cover;
-	transition : .1s linear;
+	//transition : .2s ease-in-out;
 	-webkit-filter: blur(0);
 }
 
