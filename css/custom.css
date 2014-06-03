@@ -34,7 +34,7 @@ background-size: 33em;
 	left: 0;
 	z-index: 0;
 	background-size: cover;
-	//transition : .2s ease-in-out;
+	transition: .1s ease-out;
 	-webkit-filter: blur(0);
 }
 
