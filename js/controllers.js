@@ -1,3 +1,4 @@
+var myScroll;
 define(['angular','app'], function(angular, app)
 {
 	
@@ -10,7 +11,7 @@ define(['angular','app'], function(angular, app)
 			
 			require(["iscrollprobe"], function(){
 			
-				var myScroll;
+				
 				var point, pointStartX, pointStartY, deltaX, deltaY;
 				myScroll = new IScroll('#wrapper', {
 					scrollX: true,
@@ -57,9 +58,11 @@ define(['angular','app'], function(angular, app)
 				}); 
 				myScroll.next(0);
 				
+				/*$("#home").unbind("click");
 				$("#home").click(function(){ myScroll.goToPage(1, 0, 1000);  });
+				
 				$("#prev").click(function(){ myScroll.prev(1000); });
-				$("#next").click(function(){ myScroll.next(1000); });	
+				$("#next").click(function(){ myScroll.next(1000); });	*/
 			});
 			
 			
@@ -97,6 +100,17 @@ define(['angular','app'], function(angular, app)
 				$("#lock-indicator span:nth-child(-n+"+$scope.code.length+")").addClass("active");
 
 			 };
+			 
+			 $scope.home = function(index, event) {
+				
+				if($location.path() == "/home"){
+						myScroll.goToPage(0, 0, 1000);  
+					}else if($location.path() == "/"){
+						myScroll.goToPage(1, 0, 1000);  
+					}else{
+						$location.path('/home');
+					}
+			 };
 			
         }]
     );
@@ -111,7 +125,6 @@ define(['angular','app'], function(angular, app)
 											   "filter": "blur(0)"});
 			
 			require(["iscrollprobe"], function(){
-				var myScroll;
 				var point, pointStartX, pointStartY, deltaX, deltaY;
 				myScroll = new IScroll('#wrapper', {
 					scrollX: true,
@@ -129,11 +142,33 @@ define(['angular','app'], function(angular, app)
 					}
 				});
 				
-				$("#home").click(function(){ myScroll.goToPage(0, 0, 1000); console.log("home"); });
+				/*$("#home, #prev, #next").unbind("click");
+				$("#home").click(function(){ 
+					if(myScroll.currentPage.pageX != 0){
+						myScroll.goToPage(0, 0, 1000);  
+					}else{
+						$location.path('/home');
+					}
+					
+					
+				});*/
+				
 				$("#prev").click(function(){ myScroll.prev(1000); });
 				$("#next").click(function(){ myScroll.next(1000); });
 			});
 			$scope.pageClass = 'page-home';	
+			
+			$scope.home = function(index, event) {
+				
+				if($location.path() == "/home"){
+						myScroll.goToPage(0, 0, 1000);  
+					}else if($location.path() == "/"){
+						myScroll.goToPage(1, 0, 1000);  
+					}else{
+						$location.path('/home');
+					}
+			 };
+			
 			
 			//ios clock
 			for(var i=0;i<12;i++){
@@ -161,11 +196,19 @@ define(['angular','app'], function(angular, app)
 					$(".ios-clock-bar-sec").css({	"transition":"1s"});
 				}
 			},1000);
+			
+			$scope.home = function(index, event) {
+					$location.path('/home');	
+			 };
         }]
     );
     
     app.controller('MapController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
     	function($scope,$location, $routeParams, $http, caldevServices, Page) {
+		
+		$scope.home = function(index, event) {
+					$location.path('/home');	
+			 };
 		
 		var x = document.getElementById("demo");
 		  require(['async!http://maps.google.com/maps/api/js?v=3.exp&key=&AIzaSyD4uf0OUj3T-TAHUxqW5luo6d6Z-Br1_sosensor=false&&libraries=places'], function(){
@@ -273,7 +316,9 @@ define(['angular','app'], function(angular, app)
 	app.controller('Controller', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
 		function ($scope, $http, $location, $routeParams, caldevServices, Page){
 			hideInfo();
-	
+			$scope.home = function(index, event) {
+					$location.path('/home');	
+			 };
 		}]
 	);
 

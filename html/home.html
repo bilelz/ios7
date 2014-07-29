@@ -1,88 +1,101 @@
 <link rel="stylesheet" href="css/home.css"/>
 
+<div class="page">
+	<div ng-include src="'html/header.html'"></div>
 
-<div id="wrapper">
-						<div id="scroller">
-							<div class="slide">
-								<div class="apps">
-					        		<a href="sms" class="app-btn ios-icon messages" draggable="true"><span class="app-title" >Messages</span></a>
-						        	<a href="cal:" class="app-btn ios-icon calendar" draggable="true"><span class="app-title" >Calendar</span></a>
-						        	<a href="#" class="app-btn ios-icon photos" draggable="true"><span class="app-title" >Photos</span></a>
-						        	<a href="#" class="app-btn ios-icon camera" draggable="true"><span class="app-title" >Camera</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon weather" draggable="true"><span class="app-title" >Weather</span></a>
-						        	<a href="#" class="app-btn ios-icon clock" draggable="true">
-						        		<div class="ios-clock">
-						        			<div class="ios-clock-bar-hour"></div>
-						        			<div class="ios-clock-bar-min"></div>
-						        			<div class="ios-clock-bar-sec"></div>
-						        			<div class="ios-clock-center"></div>
-						        		</div>
-						        		<span class="app-title" >Clock</span>
-						        	</a>
-						        	<a href="maps" class="app-btn ios-icon maps"  draggable="true"><span class="app-title" >Maps</span></a>
-						        	<a href="#" class="app-btn ios-icon videos" draggable="true"><span class="app-title" >Videos</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon notes"><span class="app-title" >Notes</span></a>
-						        	<a href="#" class="app-btn ios-icon reminder"><span class="app-title" >Reminders</span></a>
-						        	<a href="#" class="app-btn ios-icon stocks"><span class="app-title" >Stocks</span></a>
-						        	<a href="#" class="app-btn ios-icon game"><span class="app-title" >Game</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon newsstand"><span class="app-title" >Newsstand</span></a>
-						        	<a href="#" class="app-btn ios-icon itunes"><span class="app-title" >Itunes</span></a>
-						        	<a href="itunes:" class="app-btn ios-icon store"><span class="app-title" >App Store</span></a>
-						        	<a href="#" class="app-btn ios-icon passbook"><span class="app-title" >Passbook</span></a>
-						        	
-						        	<a href="#" class="app-btn ios-icon compass"><span class="app-title" >Compass</span></a>
-						        	<a href="#" class="app-btn ios-icon settings"><span class="app-title" >Settings</span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>		
-						        </div>
-						         
-							</div>
-							<div class="slide">
-								<div class="apps">
-					        		<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>
-						        	<a href="#" class="app-btn"><span class="app-title" ></span></a>		
-						        </div>
-							</div>
-							
-						</div>
+	<div id="viewport">
+		<div id="wrapper">
+			<div id="scroller">
+				<div class="slide">
+					<div class="apps">
+						<a href="sms" class="app-btn ios-icon messages" draggable="true"><span class="app-title" >Messages</span></a>
+						<a href="cal:" class="app-btn ios-icon calendar" draggable="true"><span class="app-title" >Calendar</span></a>
+						<a class="app-btn ios-icon photos" draggable="true"><span class="app-title" >Photos</span></a>
+						<a class="app-btn ios-icon camera" draggable="true"><span class="app-title" >Camera</span></a>
+
+						<a class="app-btn ios-icon weather" draggable="true" ng-click="home()"><span class="app-title" >Weather</span></a>
+						<a class="app-btn ios-icon clock" draggable="true">
+						<div class="ios-clock">
+							<div class="ios-clock-bar-hour"></div>
+							<div class="ios-clock-bar-min"></div>
+							<div class="ios-clock-bar-sec"></div>
+							<div class="ios-clock-center"></div>
+						</div> <span class="app-title" >Clock</span> </a>
+						<a href="maps" class="app-btn ios-icon maps"  draggable="true"><span class="app-title" >Maps</span></a>
+						<a class="app-btn ios-icon videos" draggable="true"><span class="app-title" >Videos</span></a>
+
+						<a class="app-btn ios-icon notes"><span class="app-title" >Notes</span></a>
+						<a class="app-btn ios-icon reminder"><span class="app-title" >Reminders</span></a>
+						<a class="app-btn ios-icon stocks"><span class="app-title" >Stocks</span></a>
+						<a class="app-btn ios-icon game"><span class="app-title" >Game</span></a>
+
+						<a class="app-btn ios-icon newsstand"><span class="app-title" >Newsstand</span></a>
+						<a class="app-btn ios-icon itunes"><span class="app-title" >Itunes</span></a>
+						<a href="itunes:" class="app-btn ios-icon store"><span class="app-title" >App Store</span></a>
+						<a class="app-btn ios-icon passbook"><span class="app-title" >Passbook</span></a>
+
+						<a class="app-btn ios-icon compass"><span class="app-title" >Compass</span></a>
+						<a class="app-btn ios-icon settings"><span class="app-title" >Settings</span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
 					</div>
-					
-<div id="indicator">
-					<div id="dotty"></div>
-					<span></span>&nbsp;&nbsp;&nbsp;&nbsp;
-					<span></span>
+
 				</div>
-				
-				<div class="footer">
-						        	<div class="apps">
-						        		<a href="tel:" class="app-btn ios-icon phone"><span class="app-title" >Phone</span></a>
-							        	<a href="mail:" class="app-btn ios-icon mail"><span class="app-title" >Mail</span></a>
-							        	<a href="#" class="app-btn ios-icon safari"><span class="app-title" >Safari</span></a>
-							        	<a href="#" class="app-btn ios-icon music"><span class="app-title" >Music</span></a>
-							        </div>
-						        </div>
+				<div class="slide">
+					<div class="apps">
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+						<a class="app-btn"><span class="app-title" ></span></a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="indicator">
+			<div id="dotty"></div>
+			<span></span>&nbsp;&nbsp;&nbsp;&nbsp; <span></span>
+		</div>
+
+		<div class="footer">
+			<div class="apps">
+				<a href="tel:" class="app-btn ios-icon phone"><span class="app-title" >Phone</span></a>
+				<a href="mail:" class="app-btn ios-icon mail"><span class="app-title" >Mail</span></a>
+				<a class="app-btn ios-icon safari"><span class="app-title" >Safari</span></a>
+				<a class="app-btn ios-icon music"><span class="app-title" >Music</span></a>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="info"></div>
+
+	<div id="settings-panel" draggable="true">
+		<i class="fa fa-plane"></i>
+		<i class="fa fa-moon-o"></i>
+		<i class="fa fa-unlock-alt"></i>
+	</div>
+
+</div>
+<div ng-include src="'html/footerCtrl.html'"></div>

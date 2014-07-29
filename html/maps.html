@@ -1,3 +1,22 @@
 <link rel="stylesheet" href="css/maps.css"/>
-<input type="search" id="adress" placeholder="Search" required x-webkit-speech/>
-<div id="map-canvas"></div>
+
+<div class="page">
+	<div ng-include src="'html/header.html'"></div>
+
+	<div id="viewport">
+		<input type="search" id="adress" placeholder="Search" required x-webkit-speech/>
+		<div id="map-canvas"></div>
+
+	</div>
+
+	<div id="info"></div>
+
+	<div id="settings-panel" draggable="true">
+		<i class="fa fa-plane"></i>
+		<i class="fa fa-moon-o"></i>
+		<i class="fa fa-unlock-alt"></i>
+	</div>
+
+</div>
+
+<div ng-include src="'html/footerCtrl.html'"></div>

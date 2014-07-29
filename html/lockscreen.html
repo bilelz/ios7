@@ -1,84 +1,103 @@
 <link rel="stylesheet" href="css/lockscreen.css"/>
- <div id="wrapper">
-	<div id="scroller">
-		<div class="slide">
-			<div class="apps">
-			
-				<div id="lock-title">Enter password</div>
-				
-				<div id="lock-indicator">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
+
+<div class="page">
+	<div ng-include src="'html/header.html'"></div>
+
+	<div id="viewport">
+		<div id="wrapper">
+			<div id="scroller">
+				<div class="slide">
+					<div class="apps">
+
+						<div id="lock-title">
+							Enter password
+						</div>
+
+						<div id="lock-indicator">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+
+						<div id="lock-code">
+							<div class="lock-num" ng-click="num('1')">
+								<span>1</span>
+								<span></span>
+							</div>
+							<div class="lock-num" ng-click="num('2')">
+								<span>2</span>
+								<span>ABC</span>
+							</div>
+							<div class="lock-num" ng-click="num('3')">
+								<span>3</span>
+								<span>DEF</span>
+							</div>
+							<div class="lock-num" ng-click="num('4')">
+								<span>4</span>
+								<span>GHI</span>
+							</div>
+							<div class="lock-num" ng-click="num('5')">
+								<span>5</span>
+								<span>JKL</span>
+							</div>
+							<div class="lock-num" ng-click="num('6')">
+								<span>6</span>
+								<span>MNO</span>
+							</div>
+							<div class="lock-num" ng-click="num('7')">
+								<span>7</span>
+								<span>PQRS</span>
+							</div>
+							<div class="lock-num" ng-click="num('8')">
+								<span>8</span>
+								<span>TUV</span>
+							</div>
+							<div class="lock-num" ng-click="num('9')">
+								<span>9</span>
+								<span>WXYZ</span>
+							</div>
+							<div class="lock-num" ng-click="num('0')">
+								<span>0</span>
+								<span></span>
+							</div>
+
+						</div>
+
+						<div id="lock-delete" ng-click="deletenum()">
+							Delete
+						</div>
+					</div>
 				</div>
-				
-				<div id="lock-code">
-					<div class="lock-num" ng-click="num('1')">
-						<span>1</span>
-						<span></span>
+				<div class="slide">
+					<div class="apps">
+
+						<div id="lock-clock"></div>
+						<div id="lock-date"></div>
+
+						<div id="lock-slidetounlock">
+							<i class="fa fa-angle-right"></i> slide <i class="fa fa-moon"></i> to unlock
+						</div>
 					</div>
-					<div class="lock-num" ng-click="num('2')">
-						<span>2</span>
-						<span>ABC</span>
-					</div>
-					<div class="lock-num" ng-click="num('3')">
-						<span>3</span>
-						<span>DEF</span>
-					</div>
-					<div class="lock-num" ng-click="num('4')">
-						<span>4</span>
-						<span>GHI</span>
-					</div>
-					<div class="lock-num" ng-click="num('5')">
-						<span>5</span>
-						<span>JKL</span>
-					</div>
-					<div class="lock-num" ng-click="num('6')">
-						<span>6</span>
-						<span>MNO</span>
-					</div>
-					<div class="lock-num" ng-click="num('7')">
-						<span>7</span>
-						<span>PQRS</span>
-					</div>
-					<div class="lock-num" ng-click="num('8')">
-						<span>8</span>
-						<span>TUV</span>
-					</div>
-					<div class="lock-num" ng-click="num('9')">
-						<span>9</span>
-						<span>WXYZ</span>
-					</div>
-					<div class="lock-num" ng-click="num('0')">
-						<span>0</span>
-						<span></span>
-					</div>
-					
 				</div>
-				
-				<div id="lock-delete" ng-click="deletenum()">Delete</div>
 			</div>
 		</div>
-		<div class="slide">
-			<div class="apps">
-			
-				<div id="lock-clock"></div>
-				<div id="lock-date"></div>
-				
-				
-				
-				<div id="lock-slidetounlock">
-					<i class="fa fa-angle-right"></i> slide <i class="fa fa-moon"></i> to unlock
-				</div>
-			</div>
+
+		<div id="indicator">
+			<div id="dotty"></div>
+			<span></span>&nbsp;&nbsp;&nbsp;&nbsp; <span></span>
 		</div>
+
 	</div>
+
+	<div id="info"></div>
+
+	<div id="settings-panel" draggable="true">
+		<i class="fa fa-plane"></i>
+		<i class="fa fa-moon-o"></i>
+		<i class="fa fa-unlock-alt"></i>
+	</div>
+
 </div>
 
-<div id="indicator">
-					<div id="dotty"></div>
-					<span></span>&nbsp;&nbsp;&nbsp;&nbsp;
-					<span></span>
-				</div>
-				
+<div ng-include src="'html/footerCtrl.html'"></div>

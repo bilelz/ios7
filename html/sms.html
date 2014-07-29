@@ -1,17 +1,36 @@
 <link rel="stylesheet" href="css/sms.css"/>
+<div class="page">
+	<div ng-include src="'html/header.html'"></div>
 
-<div id="app-header">
-	<a href="sms" id="app-back"><i class="fa fa-chevron-left"></i> Messages</a>
-	<span id="app-title">Paul Zemanek</span>
+	<div id="viewport">
+		<div id="app-header">
+			<a href="sms" id="app-back"><i class="fa fa-chevron-left"></i> Messages</a>
+			<span id="app-title">Paul Zemanek</span>
+		</div>
+
+		<div class="sms me">
+			Hello what's up?
+		</div>
+		<div class="sms you">
+			Oasis is good man!
+		</div>
+
+		<div id="app-footer">
+			<span id="camera"><i class="fa fa-camera"></i></span>
+			<input type="text" name="imessage" placeholder="iMessage">
+			<input type="submit" value="Send"/>
+		</div>
+
+	</div>
+
+	<div id="info"></div>
+
+	<div id="settings-panel" draggable="true">
+		<i class="fa fa-plane"></i>
+		<i class="fa fa-moon-o"></i>
+		<i class="fa fa-unlock-alt"></i>
+	</div>
+
 </div>
 
-<div class="sms me">Hello what's up?</div>
-<div class="sms you">Oasis is good man!</div>
-
-
-
-<div id="app-footer">
-	<span id="camera"><i class="fa fa-camera"></i></span>
-	<input type="text" name="imessage" placeholder="iMessage">
-	<input type="submit" value="Send"/>
-</div>
+<div ng-include src="'html/footerCtrl.html'"></div>

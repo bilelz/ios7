@@ -1,30 +1,35 @@
 <link rel="stylesheet" href="css/sms.css"/>
 
+<div class="page">
+	<div ng-include src="'html/header.html'"></div>
 
-<div id="app-header">
-	<span id="app-title">Messages</span>
+	<div id="viewport">
+		<div id="app-header">
+			<span id="app-title">Messages</span>
+		</div>
+
+		<ul>
+			<li>
+				<a href="smsread"> <span class="sms-author">Paul Zemanek</span> <span class="sms-text">It would be like a reunion.</span> <span class="sms-time">9:41 PM &nbsp;<i class="fa fa-angle-right"></i></span> </a>
+			</li>
+			<li>
+				<a href="smsread"> <span class="sms-author">Erica Haims</span> <span class="sms-text">Way...</span> <span class="sms-time">9:41 PM &nbsp;<i class="fa fa-angle-right"></i></span> </a>
+			</li>
+			<li>
+				<a href="smsread"> <span class="sms-author">Blair</span> <span class="sms-text">Witch</span> <span class="sms-time">9:41 PM &nbsp;<i class="fa fa-angle-right"></i></span> </a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div id="info"></div>
+
+	<div id="settings-panel" draggable="true">
+		<i class="fa fa-plane"></i>
+		<i class="fa fa-moon-o"></i>
+		<i class="fa fa-unlock-alt"></i>
+	</div>
+
 </div>
 
-<ul>
-	<li>
-		<a href="smsread">
-			<span class="sms-author">Paul Zemanek</span>
-			<span class="sms-text">It would be like a reunion.</span>
-			<span class="sms-time">9:41 PM &nbsp;<i class="fa fa-angle-right"></i></span>
-		</a>
-	</li>
-	<li>
-		<a href="smsread">
-			<span class="sms-author">Erica Haims</span>
-			<span class="sms-text">Way...</span>
-			<span class="sms-time">9:41 PM &nbsp;<i class="fa fa-angle-right"></i></span>
-		</a>
-	</li>
-	<li>
-		<a href="smsread">
-			<span class="sms-author">Blair</span>
-			<span class="sms-text">Witch</span>
-			<span class="sms-time">9:41 PM &nbsp;<i class="fa fa-angle-right"></i></span>
-		</a>
-	</li>
-</ul>
+<div ng-include src="'html/footerCtrl.html'"></div>
